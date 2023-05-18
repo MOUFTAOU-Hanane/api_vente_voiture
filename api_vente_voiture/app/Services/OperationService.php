@@ -89,4 +89,14 @@ class OperationService
         }
 
     }
+
+    public function deleteVehicule($idVehicule){
+        try{
+            return  $this->_operationRepository->deleteVehicule($idVehicule);
+
+        }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+
+    }
 }

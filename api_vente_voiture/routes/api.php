@@ -40,5 +40,7 @@ Route::group(['prefix' => 'offer'], function () {
     //update vehicule
     Route::post('/update-vehicule',  [OperationController::class,'updateVehicule']);
 
+    Route::post('/delete-vehicule',  [OperationController::class,'deleteVehicule']);
+
 });//end params
 

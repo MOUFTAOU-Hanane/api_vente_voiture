@@ -103,4 +103,16 @@ public function updateVehicule($id, $type_vehicule, $marque ,  $annee , $modele 
     }
 
 }
+
+public function deleteVehicule($idVehicule){
+    try{
+        $vehiculeFound = Vehicule::where('id','=',$idVehicule) ->first();
+        $vehiculeFound ->delete();
+        return true;
+
+    }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+
+}
 }

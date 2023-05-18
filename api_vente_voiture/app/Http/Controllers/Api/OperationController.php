@@ -189,6 +189,53 @@ class OperationController extends Controller
         }
     }
 
+   public function deleteVehicule(Request $request){
+        try{
+            $rData =  $request->only([
+                "vehicule_id"
+            ]);
+              //data validation
+        $validator = [
+            'vehicule_id' => ['required',"exists:vehicules,id"],
+        ];
+
+        $validationMessages = [
+            'vehicule_id.required' => "L'identifiant du véhicule est requis",
+            'vehicule_id.exists' => "L'identifiant du véhicule n'est pas valide",
+
+
+        ];
+        $validatorResult = Validator::make($rData, $validator , $validationMessages);
+        if ($validatorResult->fails()) {
+            return response()->json([
+                'data' => $validatorResult->errors()->first(),
+                'status' => "error",
+                'message' => "Veuillez fournir des informations valides",
+            ], 400);
+        }
+
+       //get data as variables
+        $vehicule_id = $rData["vehicule_id"];
+
+         //do operation
+        $result = $this->_operationService->deleteVehicule($vehicule_id);
+        if($result === false){
+            return response()->json([
+                'status' => "error",  'message' => "Une erreur est survenue lors de la suppression.",
+            ], 400);
+
+
+        }
+        return response()->json([
+            'data' =>$result,
+            'status' => "success",  'message' => "succes",
+        ], 200);
+
+         }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+    }
+
 
 
 

@@ -18,4 +18,6 @@ interface OperationRepositoryInterface
     public function updateVehicule($id, $type_vehicule, $marque ,  $annee , $modele );
     //listing all vehicules
     public function getVehicules();
+    //delete vehicule
+    public function deleteVehicule($idVehicule);
 }
