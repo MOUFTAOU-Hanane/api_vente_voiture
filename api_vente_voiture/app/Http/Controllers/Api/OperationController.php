@@ -19,7 +19,11 @@ class OperationController extends Controller
     //listing marque
     public function getMarque(){
         try{
-            return  $this->_operationService->getMarque();
+            $result =  $this->_operationService->getMarque();
+            return response()->json([
+                'data' => $result,
+                'status' => "success",  'message' => "success",
+            ], 200);
 
 
         }catch(Exception $ex){
@@ -30,7 +34,11 @@ class OperationController extends Controller
     //listing modele
     public function getModele(){
         try{
-            return  $this->_operationService->getModele();
+            $result = $this->_operationService->getModele();
+            return response()->json([
+                'data' => $result,
+                'status' => "success",  'message' => "success",
+            ], 200);
 
         }catch(Exception $ex){
             throw new Exception($ex);
@@ -40,7 +48,11 @@ class OperationController extends Controller
     //listing categorie vehicule
     public function getTypeVehicule(){
         try{
-            return  $this->_operationService->getTypeVehicule();
+            $result = $this->_operationService->getTypeVehicule();
+            return response()->json([
+                'data' => $result,
+                'status' => "success",  'message' => "success",
+            ], 200);
 
         }catch(Exception $ex){
             throw new Exception($ex);
@@ -118,7 +130,12 @@ class OperationController extends Controller
     //listing alll  vehicules
     public function getVehicules(){
         try{
-            return  $this->_operationService->getVehicules();
+            $result =  $this->_operationService->getVehicules();
+            return response()->json([
+                'data' => $result,
+                'status' => "success",  'message' => "success",
+            ], 200);
+
 
         }catch(Exception $ex){
             throw new Exception($ex);
@@ -202,8 +219,6 @@ class OperationController extends Controller
         $validationMessages = [
             'vehicule_id.required' => "L'identifiant du véhicule est requis",
             'vehicule_id.exists' => "L'identifiant du véhicule n'est pas valide",
-
-
         ];
         $validatorResult = Validator::make($rData, $validator , $validationMessages);
         if ($validatorResult->fails()) {
