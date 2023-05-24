@@ -251,6 +251,208 @@ class OperationController extends Controller
         }
     }
 
+    //
+    public function createCategory(Request $request){
+        try{
+            $rData =  $request->only([
+                'libelle',"code",
+            ]);
+              //data validation
+        $validator = [
+            'libelle' => ['required'],
+            'code' => ['required'],
+
+        ];
+
+        $validationMessages = [
+            'libelle.required' => "Le  libelle  est requis",
+            'code.required' => "Le code est requis",
+
+
+        ];
+        $validatorResult = Validator::make($rData, $validator , $validationMessages);
+        if ($validatorResult->fails()) {
+            return response()->json([
+                'data' => $validatorResult->errors()->first(),
+                'status' => "error",
+                'message' => "Veuillez fournir des informations valides",
+            ], 400);
+        }
+
+       //get data as variables
+        $libelle = $rData["libelle"];
+        $code = $rData["code"];
+
+
+         //do operation
+        $result = $this->_operationService->createCategory($libelle, $code);
+        if($result === false){
+            return response()->json([
+                'status' => "error",  'message' => "Une erreur est survenue lors de la création d'une catégorie de véhicule.",
+            ], 400);
+
+
+        }
+        return response()->json([
+            'data' =>$result,
+            'status' => "success",  'message' => "succes",
+        ], 200);
+
+         }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+    }
+
+    public function createModel(Request $request){
+        try{
+            $rData =  $request->only([
+                'libelle',"code",
+            ]);
+              //data validation
+        $validator = [
+            'libelle' => ['required'],
+            'code' => ['required'],
+
+        ];
+
+        $validationMessages = [
+            'libelle.required' => "Le  libelle  est requis",
+            'code.required' => "Le code est requis",
+
+
+        ];
+        $validatorResult = Validator::make($rData, $validator , $validationMessages);
+        if ($validatorResult->fails()) {
+            return response()->json([
+                'data' => $validatorResult->errors()->first(),
+                'status' => "error",
+                'message' => "Veuillez fournir des informations valides",
+            ], 400);
+        }
+
+       //get data as variables
+        $libelle = $rData["libelle"];
+        $code = $rData["code"];
+
+
+         //do operation
+        $result = $this->_operationService->createModel($libelle, $code);
+        if($result === false){
+            return response()->json([
+                'status' => "error",  'message' => "Une erreur est survenue lors de la création d'un modele de véhicule.",
+            ], 400);
+
+
+        }
+        return response()->json([
+            'data' =>$result,
+            'status' => "success",  'message' => "succes",
+        ], 200);
+
+         }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+    }
+
+
+    public function createMarque(Request $request){
+        try{
+            $rData =  $request->only([
+                'libelle',"code",
+            ]);
+              //data validation
+        $validator = [
+            'libelle' => ['required'],
+            'code' => ['required'],
+
+        ];
+
+        $validationMessages = [
+            'libelle.required' => "Le  libelle  est requis",
+            'code.required' => "Le code est requis",
+
+
+        ];
+        $validatorResult = Validator::make($rData, $validator , $validationMessages);
+        if ($validatorResult->fails()) {
+            return response()->json([
+                'data' => $validatorResult->errors()->first(),
+                'status' => "error",
+                'message' => "Veuillez fournir des informations valides",
+            ], 400);
+        }
+
+       //get data as variables
+        $libelle = $rData["libelle"];
+        $code = $rData["code"];
+
+
+         //do operation
+        $result = $this->_operationService->createMarque($libelle, $code);
+        if($result === false){
+            return response()->json([
+                'status' => "error",  'message' => "Une erreur est survenue lors de la création d'une marque de véhicule.",
+            ], 400);
+
+
+        }
+        return response()->json([
+            'data' =>$result,
+            'status' => "success",  'message' => "succes",
+        ], 200);
+
+         }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+    }
+
+
+
+   public function detailVehicule(Request $request){
+    try{
+        $rData =  $request->only([
+            "vehicule_id"
+        ]);
+          //data validation
+    $validator = [
+        'vehicule_id' => ['required',"exists:vehicules,id"],
+    ];
+
+    $validationMessages = [
+        'vehicule_id.required' => "L'identifiant du véhicule est requis",
+        'vehicule_id.exists' => "L'identifiant du véhicule n'est pas valide",
+    ];
+    $validatorResult = Validator::make($rData, $validator , $validationMessages);
+    if ($validatorResult->fails()) {
+        return response()->json([
+            'data' => $validatorResult->errors()->first(),
+            'status' => "error",
+            'message' => "Veuillez fournir des informations valides",
+        ], 400);
+    }
+
+   //get data as variables
+    $vehicule_id = $rData["vehicule_id"];
+
+     //do operation
+    $result = $this->_operationService->detailVehicule($vehicule_id);
+    if($result === false){
+        return response()->json([
+            'status' => "error",  'message' => "Une erreur est survenue.",
+        ], 400);
+
+
+    }
+    return response()->json([
+        'data' =>$result,
+        'status' => "success",  'message' => "succes",
+    ], 200);
+
+     }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+}
+
 
 
 

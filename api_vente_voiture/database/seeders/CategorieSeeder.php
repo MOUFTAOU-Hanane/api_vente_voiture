@@ -19,13 +19,34 @@ class CategorieSeeder extends Seeder
     public function run()
     {
 
-        for ($i = 0; $i < 10; $i++) {
             DB::table('types_vehicule')->insert([
-                'libelle' =>Str::random(5),
-                'code' => Str::random(3),
+            [
+                'libelle' =>"BUS",
+                'code' => "1",
 
-            ]);
+            ],
+            [
+                'libelle' =>"BERLINE",
+                'code' => "2",
+
+            ],
+            [
+                'libelle' =>"FAMILIALE",
+                'code' => "3",
+
+            ],
+            [
+                'libelle' =>"CABRIOLET",
+                'code' => "4",
+
+            ],
+            [
+                'libelle' =>"COUPE",
+                'code' => "5",
+
+            ],]
+        );
         }
     }
-    }
+
 

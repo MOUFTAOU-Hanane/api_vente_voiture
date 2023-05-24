@@ -99,4 +99,45 @@ class OperationService
         }
 
     }
+
+    public function createModel($libelle, $code){
+        try{
+            return  $this->_operationRepository->createModel($libelle, $code);
+
+        }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+
+    }
+
+    public function createMarque($libelle, $code){
+        try{
+            return  $this->_operationRepository->createMarque($libelle, $code);
+
+        }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+
+    }
+
+    public function createCategory($libelle, $code){
+        try{
+            return  $this->_operationRepository->createCategory($libelle, $code);
+
+        }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+
+    }
+
+
+    public function detailVehicule($idVehicule){
+        try{
+            return  $this->_operationRepository->detailVehicule($idVehicule);
+
+        }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+
+    }
 }

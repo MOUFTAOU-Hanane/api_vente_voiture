@@ -16,18 +16,35 @@ use App\Http\Controllers\Api\OperationController;
 |
 */
 
-Route::group(['prefix' => 'params'], function () {
+    // Vos routes d'API nécessitant un accès cross-origin ici
+    Route::group(['prefix' => 'params'], function () {
 
-    //listing category vehicule
-    Route::get('/type-vehicule', [OperationController::class,'getTypeVehicule']);
+        //listing category vehicule
+        Route::get('/type-vehicule', [OperationController::class,'getTypeVehicule']);
 
-    //listing marque vehicule
-    Route::get('/marques',  [OperationController::class,'getMarque']);
+        //listing marque vehicule
+        Route::get('/marques',  [OperationController::class,'getMarque']);
 
-    //listing modele vehicule
-    Route::get('/models',  [OperationController::class,'getModele']);
+        //listing modele vehicule
+        Route::get('/models',  [OperationController::class,'getModele']);
 
-});//end params
+
+        Route::post('/create-model',  [OperationController::class,'createModel']);
+        Route::post('/create-marque',  [OperationController::class,'createMarque']);
+        Route::post('/create-category',  [OperationController::class,'createCategory']);
+
+
+
+
+
+
+
+
+    });//end params
+
+
+
+
 
 Route::group(['prefix' => 'offer'], function () {
 
@@ -41,6 +58,9 @@ Route::group(['prefix' => 'offer'], function () {
     Route::post('/update-vehicule',  [OperationController::class,'updateVehicule']);
 
     Route::post('/delete-vehicule',  [OperationController::class,'deleteVehicule']);
+
+
+
 
 });//end params
 

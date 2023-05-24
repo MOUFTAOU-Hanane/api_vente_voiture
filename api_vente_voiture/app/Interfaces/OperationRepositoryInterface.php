@@ -20,4 +20,10 @@ interface OperationRepositoryInterface
     public function getVehicules();
     //delete vehicule
     public function deleteVehicule($idVehicule);
+
+    public function createModel($libelle, $code);
+    public function createMarque($libelle, $code);
+    public function createCategory($libelle, $code);
+    public function detailVehicule($idVehicule);
+
 }

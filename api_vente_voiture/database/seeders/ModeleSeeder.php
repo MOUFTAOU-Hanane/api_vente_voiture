@@ -19,13 +19,29 @@ class ModeleSeeder extends Seeder
     public function run()
     {
 
-        for ($i = 0; $i < 10; $i++) {
-            DB::table('modeles')->insert([
-                'libelle' =>Str::random(5),
-                'code' => Str::random(3),
+        DB::table('modeles')->insert([
+        [
+            'libelle' => 'Toyota Coaster',
+            'code' => '1',
+        ],
+        [
+            'libelle' => 'Mercedes-Benz E-Class',
+            'code' => '2',
+        ],
+        [
+            'libelle' => 'Volkswagen Passat',
+            'code' => '3',
+        ],
+        [
+            'libelle' => 'BMW 4 Series Convertible',
+            'code' => '4',
+        ],
+        [
+            'libelle' => 'Audi A5 Coupe',
+            'code' => '5',
+        ], ]
+        );
 
-            ]);
-        }
     }
     }
 

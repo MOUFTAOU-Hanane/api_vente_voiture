@@ -15,7 +15,7 @@ class OperationRepository implements OperationRepositoryInterface
     //listing marque
     public function getMarque(){
         try{
-            $marques =Marque::all();
+            $marques =Marque::orderBy('id','DESC')->get();
             return $marques;
 
         }catch(Exception $ex){
@@ -26,7 +26,7 @@ class OperationRepository implements OperationRepositoryInterface
     //listing modele
     public function getModele(){
         try{
-            $modeles =Modele::all();
+            $modeles =Modele::orderBy('id','DESC')->get();
             return $modeles;
 
         }catch(Exception $ex){
@@ -37,7 +37,7 @@ class OperationRepository implements OperationRepositoryInterface
     //listing couleur vehicule
     public function getCouleur(){
         try{
-            $couleurs =Couleur::all();
+            $couleurs =Couleur::orderBy('id','DESC')->get();
             return $couleurs;
 
         }catch(Exception $ex){
@@ -48,7 +48,7 @@ class OperationRepository implements OperationRepositoryInterface
     //listing categorie vehicule
     public function getTypeVehicule(){
         try{
-            $typeVehicule =TypesVehicule::all();
+            $typeVehicule =TypesVehicule::orderBy('id','DESC')->get();
             return $typeVehicule;
 
         }catch(Exception $ex){
@@ -77,7 +77,7 @@ class OperationRepository implements OperationRepositoryInterface
 //listing all vehicule
 public function getVehicules(){
     try{
-        $vehicules =Vehicule::with('modele', 'marque', 'types_vehicule') ->get();
+        $vehicules =Vehicule::with('modele', 'marque', 'types_vehicule') ->orderBy('id','DESC')->get();
         return $vehicules;
 
     }catch(Exception $ex){
@@ -115,4 +115,59 @@ public function deleteVehicule($idVehicule){
     }
 
 }
+
+
+public function createCategory($libelle, $code){
+    try{
+        $categoryVehicule = new TypesVehicule();
+        $categoryVehicule ->libelle =$libelle;
+        $categoryVehicule ->code = $code;
+        $categoryVehicule ->save();
+        return true;
+
+    }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+
+}
+
+public function createMarque($libelle, $code){
+    try{
+        $marqueVehicule = new Marque();
+        $marqueVehicule ->libelle =$libelle;
+        $marqueVehicule ->code = $code;
+        $marqueVehicule ->save();
+        return true;
+
+    }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+
+}
+
+public function createModel($libelle, $code){
+    try{
+        $modeleVehicule = new Modele();
+        $modeleVehicule ->libelle =$libelle;
+        $modeleVehicule ->code = $code;
+        $modeleVehicule ->save();
+        return true;
+
+    }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+
+}
+
+public function detailVehicule($idVehicule){
+    try{
+        $vehiculeFound = Vehicule::where('id',$idVehicule)->first();
+        return  $vehiculeFound;
+
+    }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+
+}
+
 }

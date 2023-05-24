@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('vehicules', function (Blueprint $table) {
             $table->id();
           $table->bigInteger('marque_id')->unsigned();
-            $table->foreign('marque_id')->references('id')->on('marques');
+              
             $table->bigInteger('type_vehicule_id')->unsigned();
             $table->foreign('type_vehicule_id')->references('id')->on('types_vehicule');
             $table->bigInteger('modele_id')->unsigned();
