@@ -16,29 +16,30 @@ use App\Http\Controllers\Api\OperationController;
 |
 */
 
+
+
     // Vos routes d'API nécessitant un accès cross-origin ici
     Route::group(['prefix' => 'params'], function () {
 
         //listing category vehicule
-        Route::get('/type-vehicule', [OperationController::class,'getTypeVehicule']);
+        Route::get('/vehicle-type', [OperationController::class,'getVehicleType']);
 
         //listing marque vehicule
-        Route::get('/marques',  [OperationController::class,'getMarque']);
+        Route::get('/brand',  [OperationController::class,'getBrand']);
 
         //listing modele vehicule
-        Route::get('/models',  [OperationController::class,'getModele']);
-
+        Route::get('/models',  [OperationController::class,'getModel']);
 
         Route::post('/create-model',  [OperationController::class,'createModel']);
-        Route::post('/create-marque',  [OperationController::class,'createMarque']);
+
+        Route::post('/delete-model',  [OperationController::class,'deleteModel']);
+        Route::post('/update-model',  [OperationController::class,'updateModel']);
+
+        Route::post('/create-brand',  [OperationController::class,'createBrand']);
+        Route::post('/delete-brand',  [OperationController::class,'deleteBrand']);
+        Route::post('/update-brand',  [OperationController::class,'updateBrand']);
+
         Route::post('/create-category',  [OperationController::class,'createCategory']);
-
-
-
-
-
-
-
 
     });//end params
 
@@ -49,15 +50,17 @@ use App\Http\Controllers\Api\OperationController;
 Route::group(['prefix' => 'offer'], function () {
 
     //save vehicule
-    Route::post('/save-vehicule', [OperationController::class,'saveVehicule']);
+    Route::post('/save-vehicle', [OperationController::class,'saveVehicle']);
 
     //listing all vehicule
-    Route::get('/vehicules',  [OperationController::class,'getVehicules']);
+    Route::get('/vehicles',  [OperationController::class,'getVehicles']);
 
     //update vehicule
-    Route::post('/update-vehicule',  [OperationController::class,'updateVehicule']);
+    Route::post('/update-vehicle',  [OperationController::class,'updateVehicle']);
 
-    Route::post('/delete-vehicule',  [OperationController::class,'deleteVehicule']);
+    Route::post('/delete-vehicle',  [OperationController::class,'deleteVehicle']);
+
+    Route::post('/detail-vehicle',  [OperationController::class,'detailVehicle']);
 
 
 

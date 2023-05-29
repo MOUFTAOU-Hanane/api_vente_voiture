@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -16,7 +17,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'basePath' => env('APP_BASE_PATH', '/api/'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -181,6 +182,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        L5Swagger\L5SwaggerServiceProvider::class,
+
 
         /*
          * Package Service Providers...

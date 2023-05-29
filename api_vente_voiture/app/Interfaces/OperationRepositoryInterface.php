@@ -26,4 +26,9 @@ interface OperationRepositoryInterface
     public function createCategory($libelle, $code);
     public function detailVehicule($idVehicule);
 
+    public function updateBrand( $marque, $libelle, $code);
+    public function updateModel( $modele, $libelle, $code);
+    public function deleteBrand( $marque);
+    public function deleteModel( $model);
+
 }

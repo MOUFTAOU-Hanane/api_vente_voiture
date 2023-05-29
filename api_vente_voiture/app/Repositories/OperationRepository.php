@@ -7,6 +7,8 @@ use App\Models\Couleur;
 use App\Models\Modele;
 use App\Models\TypesVehicule;
 use App\Models\Vehicule;
+use Illuminate\Support\Facades\DB;
+
 
 
 class OperationRepository implements OperationRepositoryInterface
@@ -161,8 +163,61 @@ public function createModel($libelle, $code){
 
 public function detailVehicule($idVehicule){
     try{
-        $vehiculeFound = Vehicule::where('id',$idVehicule)->first();
+        $vehiculeFound = Vehicule::where('id',$idVehicule)->with('modele', 'marque', 'types_vehicule')->first();
         return  $vehiculeFound;
+
+    }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+
+}
+
+public function updateBrand($marque, $libelle, $code){
+    try{
+        $brandFound = Marque::where('id',$marque)->first();
+        $brandFound ->libelle =$libelle;
+        $brandFound ->code = $code;
+        $brandFound ->save();
+        return true;
+
+    }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+
+}
+public function updateModel( $modele, $libelle, $code){
+    try{
+        $modelFound = Modele::where('id',$modele)->first();
+        $modelFound ->libelle =$libelle;
+        $modelFound ->code = $code;
+        $modelFound ->save();
+        return true;
+
+    }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+
+}
+public function deleteBrand( $marque){
+    try{
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        $brandFound = Marque::where('id','=',$marque) ->first();
+        $brandFound ->delete();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        return true;
+
+    }catch(Exception $ex){
+        throw new Exception($ex);
+    }
+
+}
+public function deleteModel( $model){
+    try{
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        $modelFound = Modele::where('id','=',$model) ->first();
+        $modelFound ->delete();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        return true;
 
     }catch(Exception $ex){
         throw new Exception($ex);

@@ -1,0 +1,452 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": " OpenApi Documentation",
+        "description": " Swagger OpenApi description",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/hanane/public/api/params/brand": {
+            "get": {
+                "tags": [
+                    "brand vehicle"
+                ],
+                "summary": "Get brand vehicle",
+                "operationId": "0c3862204e25f946aa7352d25f9bd3be",
+                "responses": {
+                    "200": {
+                        "description": " listing brand vehicle"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/params/models": {
+            "get": {
+                "tags": [
+                    "Model vehicle"
+                ],
+                "summary": "listing models vehicle",
+                "operationId": "ed2795f4fb187f21994d0c9e7caa3e1c",
+                "responses": {
+                    "200": {
+                        "description": "Listing vehicle model"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/params/update-model": {
+            "post": {
+                "tags": [
+                    "update modele"
+                ],
+                "summary": "update modele",
+                "operationId": "299bebe02319acfde4b93cb72751da04",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "modele_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "hbqhnjbhb"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "hbqb"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "model updated"
+                    }
+                }
+            }
+        },
+        "/public/hanane/public/api/params/vehicle-type": {
+            "get": {
+                "tags": [
+                    "Vehicle Type"
+                ],
+                "summary": "Listing vehicle type",
+                "operationId": "db49750e2baf22fd5f1f6cbd142e73a9",
+                "responses": {
+                    "200": {
+                        "description": "Listing vehicle type"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/offer/save-vehicle": {
+            "post": {
+                "tags": [
+                    "Vehicle"
+                ],
+                "summary": "save vehicle",
+                "operationId": "9444dc0e13b20b4e1e632d3941de9abb",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "modele_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "marque_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "type_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "annee": {
+                                        "type": "integer",
+                                        "example": 2022
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "vehicle saved"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/offer/vehicles": {
+            "get": {
+                "tags": [
+                    "vehicules"
+                ],
+                "summary": "vehicles",
+                "operationId": "ff774c4eb20922e2d0ffe96117b83a94",
+                "responses": {
+                    "200": {
+                        "description": "Listing vehicles"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/offer/update-vehicle": {
+            "post": {
+                "tags": [
+                    "update vehicle"
+                ],
+                "summary": "update vehicle",
+                "operationId": "4a7ea8658d30f228dc6e976f09d22fac",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "vehicule_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "modele_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "marque_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "type_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "annee": {
+                                        "type": "integer",
+                                        "example": 2022
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "vehicle updated"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/offer/delete-vehicle": {
+            "post": {
+                "tags": [
+                    "delete vehicle"
+                ],
+                "summary": "delete vehicle",
+                "operationId": "383bf60398b34d797816d032facb1195",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "vehicule_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "vehicle updated"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/params/create-category": {
+            "post": {
+                "tags": [
+                    "create category vehicle"
+                ],
+                "summary": "create category vehicle",
+                "operationId": "987e95a3e6c5b05c75596a9ee7383e2f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "toyota"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "toyota"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "category vehicle created"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/params/create-model": {
+            "post": {
+                "tags": [
+                    "create model vehicle"
+                ],
+                "summary": "create-model",
+                "operationId": "293f4dd4c8e5003d51c6f29174f20a52",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "toyota"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "toyota"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "model created"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/params/create-brand": {
+            "post": {
+                "tags": [
+                    "create brand vehicle"
+                ],
+                "summary": "create brand",
+                "operationId": "b3789e63cb1c02264574bd94f3d51b71",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "toyota"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "toyota"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "brand created"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/params/update-brand": {
+            "post": {
+                "tags": [
+                    "update brand"
+                ],
+                "summary": "update brand",
+                "operationId": "e308ca9f263118a63c4b9d1178200580",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "marque_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "libelle": {
+                                        "type": "string",
+                                        "example": "hbqhnjbhb"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "hbqb"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "brand updated"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/params/delete-brand": {
+            "post": {
+                "tags": [
+                    "delete brand"
+                ],
+                "summary": "delete brand",
+                "operationId": "3e0d1628d73d3d341bd0ffa0bee1b419",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "marque_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "brand deleted"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/params/delete-model": {
+            "post": {
+                "tags": [
+                    "delete model"
+                ],
+                "summary": "delete model",
+                "operationId": "8dabd264893a0716b9178166a6591760",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "modele_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "model deleted"
+                    }
+                }
+            }
+        },
+        "/hanane/public/api/offer/detail-vehicle": {
+            "post": {
+                "tags": [
+                    "detail vehicle"
+                ],
+                "summary": "detail vehicle",
+                "operationId": "f271f3a8dc34a8d7dabc546a1e551f74",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "vehicule_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "vehicle detail"
+                    }
+                }
+            }
+        }
+    }
+}

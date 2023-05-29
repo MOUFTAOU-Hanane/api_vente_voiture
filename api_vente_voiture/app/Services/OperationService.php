@@ -140,4 +140,44 @@ class OperationService
         }
 
     }
+
+
+    public function updateBrand( $marque, $libelle, $code){
+        try{
+            return  $this->_operationRepository->updateBrand($marque, $libelle, $code);
+
+        }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+
+    }
+
+    public function updateModel( $modele, $libelle, $code){
+        try{
+            return  $this->_operationRepository->updateModel($modele, $libelle, $code);
+
+        }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+
+    }
+
+    public function deleteBrand( $brand){
+        try{
+            return  $this->_operationRepository->deleteBrand( $brand);
+
+        }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+
+    }
+    public function deleteModel( $model){
+        try{
+            return  $this->_operationRepository->deleteModel( $model);
+
+        }catch(Exception $ex){
+            throw new Exception($ex);
+        }
+
+    }
 }
